@@ -3,7 +3,7 @@ module.exports = {
   description: `화나의 우당탕탕 개발일지`,
   language: `ko`, // `ko`, `en` => currently support versions for Korean and English
   siteUrl: `https://www.hwana.com`,
-  ogImage: ``, // Path to your in the 'static' folder
+  ogImage: `og-image.png`, // Path to your in the 'static' folder
   comments: {
     utterances: {
       repo: ``, // `zoomkoding/zoomkoding-gatsby-blog`,
