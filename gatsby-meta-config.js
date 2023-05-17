@@ -2,7 +2,7 @@ module.exports = {
   title: `hwana`,
   description: `화나의 우당탕탕 개발일지`,
   language: `ko`, // `ko`, `en` => currently support versions for Korean and English
-  siteUrl: `www.hwana.com`,
+  siteUrl: `https://www.hwana.com`,
   ogImage: ``, // Path to your in the 'static' folder
   comments: {
     utterances: {
