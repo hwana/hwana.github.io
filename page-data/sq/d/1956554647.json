@@ -1,1 +1,1 @@
-{"data":{"allMarkdownRemark":{"edges":[{"node":{"frontmatter":{"title":"기본형 매개변수와 참조형 매개변수","categories":"자바 자바의정석"},"fields":{"slug":"/basic-reference-parameter/"}}}]}}}
+{"data":{"allMarkdownRemark":{"edges":[{"node":{"frontmatter":{"title":"기본형 매개변수와 참조형 매개변수 / 참조형 반환타입","categories":"자바 자바의정석"},"fields":{"slug":"/basic-reference-parameter/"}}}]}}}
