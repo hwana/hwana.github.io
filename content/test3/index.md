@@ -129,6 +129,7 @@ private boolean isNext(char[][] room, int x, int y, int exclude){
 
 ```java
 class Solution {
+    //상좌우하
     private static final int[] dx = {0, -1, 1, 0};
     private static final int[] dy = {-1, 0, 0, 1};
 
@@ -157,27 +158,30 @@ class Solution {
         for(int y = 0; y < room.length; y++){
             for(int x = 0; x < room[y].length; x++){
                 if(room[y][x] != 'P') continue; //응시자가 앉지 않은 좌표는 건너 뜀
-
-                //응시자가 앉아 있는 좌표 상하좌우 검사
-                for(int d = 0; d < 4; d++){
-                    int nx = x + dx[d];
-                    int ny = y + dy[d];
-
-                    //상하좌우로 옮겨진 좌표가 범위를 벗어난다면 건너 뜀
-                    if(ny < 0 || ny > room.length || nx < 0 || nx > room[ny].length) continue;
-                    switch(room[ny][nx]){
-                        case 'P': return false; //상하좌우로 옮겨진 좌표에 응시자가 있다면 조건 불만족
-                        case 'O': //상하좌우로 옮겨진 좌표에 빈 자리가 있다면 추가 검사 필요
-                            if(isNext(room, nx, ny, 3-d)) return false;
-                            break;
-                    }
-                }
-                return true;
+                if(!isDistance(room, x, y)) return false;
             }
         }
         return true;
     }
 
+    private boolean isDistance(char[][] room, int x, int y){
+        //응시자가 앉아 있는 좌표 상하좌우 검사
+        for(int d = 0; d < 4; d++){
+            int nx = x + dx[d];
+            int ny = y + dy[d];
+
+            //상하좌우로 옮겨진 좌표가 범위를 벗어난다면 건너 뜀
+            if(ny < 0 || ny >= room.length || nx < 0 || nx >= room[ny].length) continue;
+            switch(room[ny][nx]){
+                case 'P': return false; //상하좌우로 옮겨진 좌표에 응시자가 있다면 조건 불만족
+                case 'O': //상하좌우로 옮겨진 좌표에 빈 자리가 있다면 추가 검사 필요
+                    if(isNext(room, nx, ny, 3-d)) return false;
+                    break;
+            }
+        }
+        return true;
+    }
+    //exclude 방향을 제외한 네 방향에 다른 응시자가 있는지 확인하는 메소드
     private boolean isNext(char[][] room, int x, int y, int exclude){
         for(int d = 0; d < 4; d++){
 
@@ -188,7 +192,7 @@ class Solution {
             int ny = y + dy[d];
 
             //상하좌우로 옮겨진 좌표가 범위를 벗어난다면 건너 뜀
-            if(ny < 0 || ny > room.length || nx < 0 || nx > room[ny].length) continue;
+            if(ny < 0 || ny >= room.length || nx < 0 || nx >= room[ny].length) continue;
             if(room[ny][nx] == 'P') return true; //빈 자리 인접한 곳에 응시자가 있다면 조건 불만족
         }
 
