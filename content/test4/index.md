@@ -23,7 +23,7 @@ class Solution {
 
             //기준점에 되는 4에서 뺀 결과값을 절대값 처리
             int score = Math.abs(4 - choices[i]);
-            //choices가 4보다 크다면 survey의 앞글자(동의), 4보다 작다면 survey의 뒷글자(비동의)
+            //choices가 4보다 작다면 survey의 앞글자(비동의), 4보다 크다면 survey의 뒷글자(동의)
             Character c = 4 > choices[i] ? survey[i].charAt(0) : survey[i].charAt(1);
 
 
