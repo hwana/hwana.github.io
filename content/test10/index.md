@@ -13,7 +13,6 @@ categories: 프로그래머스
 
 ```java
 import java.util.*;
-import java.util.stream.Collectors;
 class Solution {
     public int solution(int[] nums) {
         int answer = 0;
