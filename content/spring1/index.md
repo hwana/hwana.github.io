@@ -112,7 +112,7 @@ public class example {
     public static void main(String[] args) {
         Animal a = new Dog("초코", 3, "강아지 전용 맛있는 사료"); //다형성
 		//인스턴스의 참조타입이 상위클래스이므로
-        a.bark(); //상위클래스에 있는 메소드를 	사용할 수 있다.
+        a.bark(); //상위클래스에 있는 메소드를 사용할 수 있다.
         //a.setFeed(); 하위클래스에 있는 메소드를 사용하면 에러가 발생한다.
 
 		Dog d = new Dog("재롱이", 7, "맛없는 사료");
