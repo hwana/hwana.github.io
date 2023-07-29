@@ -8,10 +8,11 @@ categories: 스진초 자바
 ---
 
 2일차 과제를 제출하면서 강사님께 질문을 드렸다.
-![사진](/content/spring3/q.png)
+![사진](/q.png)
+~당연히 @Override가 붙어져 있어야 한다고 생각했기 때문이다.~
 
 돌아온 대답은..!<br>
-![사진](/content/spring3/a.png)
+![사진](/a.png)
 
 다 계획이 있으신 거였다😎
 
@@ -55,11 +56,11 @@ class Child extends Parent{
 
 ##### 매개변수, 리턴타입, 메소드명을 동일하게 하고 `@Override`를 붙이지 않은 경우 : 컴파일 오류 없이 Parent 클래스의 hello 메소드를 override 한 것으로 인식된다.
 
-![사진](/content/spring3/override.png)
+![사진](/override.png)
 
 ##### 매개변수가 다른데 `@Override`를 붙인 경우 : 컴파일 오류가 발생한다.
 
-![사진](/content/spring3/error.png)
+![사진](/error.png)
 
 ```toc
 
