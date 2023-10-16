@@ -211,9 +211,6 @@ public class ArraysDeepEqualsExample {
 > 
 
 > `equals` 와 `deepEquals` 의 차이점
-> 
-> 
-> 
 > |  | equals  | deepEquals  |
 > | --- | --- | --- |
 > | 배열의 종류 | 1차원 배열 | 다차원 배열 |
@@ -251,7 +248,7 @@ public class ArraysHashCodeExample {
 > HashCode of array3: 28229436
 > 
 
-### **`deepHashCode(arrays)`**
+### `deepHashCode(arrays)`
 
 - 다차원 배열의 깊은내용(내부 배열까지) 에 대한 해시코드 생성
 - 배열의 내용과 길이 구조까지 모두 비교하여 해시코드 생성
@@ -394,7 +391,7 @@ public class ArraysParallelPrefixExample {
 > Cumulative Sum of Numbers: [1, 3, 6, 10, 15, 21, 28, 36]
 > 
 
-### **`setAll(arrays, generator)`**
+### `setAll(arrays, generator)`
 
 - 각 요소를 인덱스 기반으로 설정
 
@@ -418,7 +415,7 @@ public class ArraysSetAllExample {
 > Array with Values Set by Index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 > 
 
-### **`parallelSetAll(arrays, generator)`**
+### `parallelSetAll(arrays, generator)`
 
 - 각 요소의 인덱스를 입력으로 받아 해당 인덱스에 대한 값을 계산하고, 배열의 요소를 병렬로 설정함
 
@@ -466,7 +463,7 @@ public class ArraysSortExample {
 > Sorted Array: [1, 2, 5, 5, 6, 9]
 > 
 
-### **`parallelSort(arrays)`**
+### `parallelSort(arrays)`
 
 - JAVA8부터 도입, 배열을 병렬로 정렬하는데 사용
 
