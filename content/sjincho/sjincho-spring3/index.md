@@ -3,8 +3,8 @@ emoji: 🐢
 title: 과제3) @Override 꼭 적어야 할까요?
 date: '2023-07-29 00:00:00'
 author: 화나
-tags: 스진초 자바
-categories: 스진초 자바
+tags: 스진초
+categories: 스진초
 ---
 
 2일차 과제를 제출하면서 강사님께 질문을 드렸다.

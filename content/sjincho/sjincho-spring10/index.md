@@ -3,8 +3,8 @@ emoji: 🐢
 title: 과제10) HTTP METHOD
 date: '2023-08-14 00:00:00'
 author: 화나
-tags: 스진초 자바
-categories: 스진초 자바
+tags: 스진초
+categories: 스진초
 ---
 
 #### POST

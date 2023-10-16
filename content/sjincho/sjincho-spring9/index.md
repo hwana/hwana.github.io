@@ -3,8 +3,8 @@ emoji: 🐢
 title: 과제9) REST API 30초만에 이해하기
 date: '2023-08-12 00:00:00'
 author: 화나
-tags: 스진초 자바
-categories: 스진초 자바
+tags: 스진초
+categories: 스진초
 ---
 
 ### REST?

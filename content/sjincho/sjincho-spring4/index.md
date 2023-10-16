@@ -3,8 +3,8 @@ emoji: 🐢
 title: 과제4) 제어의 역전과 의존관계 주입
 date: '2023-08-01 00:00:00'
 author: 화나
-tags: 스진초 자바
-categories: 스진초 자바
+tags: 스진초
+categories: 스진초
 ---
 
 제어의 역전과 의존관계 주입.. 영어로 보면 더 무슨 뜻인지 모르겠다. Inversion of Control, Dependency Injection 🙄 느에..?

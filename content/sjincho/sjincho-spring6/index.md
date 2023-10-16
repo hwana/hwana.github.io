@@ -3,8 +3,8 @@ emoji: 🐢
 title: 과제6) Entity, VO, DTO
 date: '2023-08-04 00:00:00'
 author: 화나
-tags: 스진초 자바
-categories: 스진초 자바
+tags: 스진초
+categories: 스진초
 ---
 
 ### DTO(Data Transfer Object)

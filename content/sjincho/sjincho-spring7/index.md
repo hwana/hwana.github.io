@@ -3,8 +3,8 @@ emoji: 🐢
 title: 과제7) Controller, Service, Repository
 date: '2023-08-08 00:00:00'
 author: 화나
-tags: 스진초 자바
-categories: 스진초 자바
+tags: 스진초
+categories: 스진초
 ---
 
 스프링은 각 클래스를 빈으로 등록하기 위해서 `@Component`라는 어노테이션을 제공하지만, 실제 개발을 할 때는 `@Component`보다 `@Contoller`, `@Service`, `@Repository`를 더 많이 사용하게 되는 것 같다. 왜 `@Component`를 사용하지 않고 `@Component`의 하위개념인 어노테이션을 따로 제공하는걸까?
