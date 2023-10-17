@@ -7,7 +7,7 @@ tags: TIL
 categories: TIL
 ---
 
-### 📝 오늘의 정리
+### 📝 오늘의 내용정리
 
 [Collections](https://hwana.github.io/java/java-collections/)
 

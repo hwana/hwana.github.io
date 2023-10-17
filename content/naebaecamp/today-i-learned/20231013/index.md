@@ -7,7 +7,7 @@ tags: TIL
 categories: TIL
 ---
 
-### 📝 오늘의 정리
+### 📝 오늘의 내용정리
 
 [배열의 얕은복사와 깊은복사](https://hwana.github.io/java/java-arrays-copy/) 
 
