@@ -3,13 +3,13 @@ emoji: 📚
 title: 다형성
 date: '2023-06-20 00:00:00'
 author: 화나
-tags: 자바 자바의정석
-categories: 자바 자바의정석
+tags: 자바
+categories: 자바
 ---
 
-## 다형성
-
-상위 클래스 타입의 참조변수로 하위 클래스의 인스턴스를 참조할 수 있도록 하는 것
+다형성은 여러가지로 표현될 수 있다.
+1. **상위 클래스 타입의 참조변수**로 **하위 클래스의 인스턴스를 참조**할 수 있도록 하는 경우
+2. 오버라이딩과 오버로딩
 
 ```java
 class Tv{
@@ -36,11 +36,11 @@ class CaptionTv extends Tv{
 ```
 
 - 두 클래스가 상속관계에 있을 때 상위 클래스 타입의 참조변수로 하위 클래스의 인스턴스를 참조하도록 할 수 있다.
-  - `Tv t = new CaptionTv();`
-  - 참조변수 t로는 Tv클래스의 멤버들만 사용할 수 있다.
-  - 참조변수의 타입이 참조변수가 참조하고 있는 인스턴스에서 사용할 수 있는 멤버의 갯수를 결정한다.
+- `Tv t = new CaptionTv();`
+- 참조변수 t로는 Tv클래스의 멤버들만 사용할 수 있다.
+- **참조변수의 타입은 참조변수가 참조하고 있는 인스턴스에서 사용할 수 있는 멤버의 갯수를 결정**한다.
 
-### 참조변수와 인스턴스의 연결
+#### 참조변수와 인스턴스의 연결
 
 ```java
 class BindingTest{
@@ -48,60 +48,39 @@ class BindingTest{
 		Parent p = new Child();
 		Child c = new Child();
 
-		System.out.println("p.x = " + p.x);
-		p.method();
+		System.out.println("p.x = " + p.x);	//100
+		p.method();	//Child Method
 
-		System.out.println("c.x = " + c.x);
-		c.method();
+		System.out.println("c.x = " + c.x);	//200
+		c.method(); //Child Method
 	}
 }
 
+//상위 클래스
 class Parent {
-	int x = 100;
+	int x = 100;	//동일한 변수명
 
 	void method() {
 		System.out.println("Parent Method");
 	}
 }
 
+//하위 클래스
 class Child extends Parent {
-	int x = 200;
+	int x = 200;	//동일한 변수명
 
-	void method() {
+	@Override
+	void method() {		//오버라이딩된 메소드
 		System.out.println("Child Method");
 	}
 }
 ```
 
-- 메소드의 경우 실제 인스턴스의 메소드가 호출되지만 멤버변수의 경우 참조변수 타입에 따라 달라진다. 참조변수의 타입에 따라 결과가 달라지는 경우는 상위 클래스의 멤버변수와 같은 이름의 멤버변수를 하위클래스에 중복해서 정의한 경우 뿐이다.
-- 메소드인 method()의 경우 참조변수의 타입에 관계없이 항상 실제 인스턴스 타입인 Child 클래스에 정의된 메소드가 호출되지만, 인스턴스변수인 x의 경우 참조변수 타입에 따라서 달라진다.
+- 메소드 : 참조변수 타입과 상관없이 실제 인스턴스의 메소드(오버라이딩된 메소드)가 호출 됨
+- 멤버변수 : 상위 클래스와 하위 클래스에 동일한 변수명으로 정의되어 있기 때문에 참조변수 타입에 따라 출력값이 달라지게 된다.
+	1. 상위 클래스 타입으로 선언되어 있을 경우 : 상위 클래스에 선언된 멤버변수 사용
+	2. 하위 클래스 타입으로 선언되어 있을 경우 : 하위 클래스에 선언된 멤버변수 사용
 
-```java
-class BindingTest2 {
-	public static void main(String[] args) {
-		Parent p = new Child();
-		Child c = new Child();
-
-		System.out.println("p.x = " + p.x);
-		p.method();
-
-		System.out.println("c.x = " + c.x);
-		c.method();
-	}
-}
-
-class Parent {
-	int x = 100;
-
-	void method() {
-		System.out.println("Parent Method");
-	}
-}
-
-class Child extends Parent { }
-```
-
-- 해당 예시는 Child 클래스에 아무런 멤버도 정의되어 있지 않기 때문에 참조변수 타입이 다르더라도 항상 상위 클래스의 멤버를 사용하게 된다.
 
 ### 매개변수의 다형성
 
@@ -141,7 +120,7 @@ class Buyer {			// 고객, 물건을 사는 사람
 	int money = 1000;	// 소유금액
 	int bonusPoint = 0;	// 보너스점수
 
-	**void buy(Product p) {**
+	void buy(Product p) {
 		if(money < p.price) {
 			System.out.println("잔액이 부족하여 물건을 살수 없습니다.");
 			return;
@@ -157,8 +136,8 @@ class PolyArgumentTest {
 	public static void main(String args[]) {
 		Buyer b = new Buyer();
 
-		**b.buy(new Tv());
-		b.buy(new Computer());**
+		b.buy(new Tv());
+		b.buy(new Computer());
 
 		System.out.println("현재 남은 돈은 " + b.money + "만원입니다.");
 		System.out.println("현재 보너스점수는 " + b.bonusPoint + "점입니다.");
@@ -166,8 +145,9 @@ class PolyArgumentTest {
 }
 ```
 
-- 매개변수가 Product타입의 참조변수라는 것은, 메소드의 매개변수로 Product클래스의 하위 클래스 타입의 참조변수면 어느 것이나 매개변수를 받아들일 수 있다는 뜻이다.
+- 매개변수가 Product타입의 변수라는 것은, 메소드의 매개변수로 Product클래스의 하위 클래스 타입의 참조변수면 어느 것이나 매개변수를 받아들일 수 있다는 뜻이다.
 
+출처 : [자바의정석](https://product.kyobobook.co.kr/detail/S000001550352)
 ```toc
 
 ```
