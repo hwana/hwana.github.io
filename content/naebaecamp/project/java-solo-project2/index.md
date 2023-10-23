@@ -7,15 +7,13 @@ tags: 내일배움캠프
 categories: 내일배움캠프
 ---
 
-
-
-> 1차 과제 구현과 달라진 점
+> 더이상 혼자 고민하는건 의미가 없다는 생각이 들어서 제출을 완료했다! 이제 피드백을 받고 내 코드에 무슨 문제가 있는지, 앞으로 어떻게 개선해 나가면 좋을지 생각해봐야겠다🥺
+>
+> ### [1차 과제 구현](https://hwana.github.io/naebaecamp/project/java-solo-project/)과 달라진 점
 > 1. 예외처리 진행
 > 2. 메뉴 초기화 방법 변경
 > 3. 기능별로 메소드 분리하려고 노력함
 > 4. 관리자 메뉴 추가
->
-> 더이상 혼자 고민하는건 의미가 없다는 생각이 들어서 제출을 완료했다! 이제 피드백을 받고 내 코드에 무슨 문제가 있는지, 앞으로 어떻게 개선해 나가면 좋을지 생각해봐야겠다🥺
 
 ## Main.java
 
@@ -23,7 +21,14 @@ categories: 내일배움캠프
 public class Main {
 
     public static void main(String[] args) {
+    
         KioskApp app = new KioskApp();
+
+        /* 변경 전
+        app.insertMenu();
+        app.kiosk();
+        */
+
         while (true) {
             try {
                 app.kiosk();
@@ -34,8 +39,8 @@ public class Main {
     }
 }
 ```
-
-- KioskApp 객체를 생성할 때 insertMenu() 메소드를 실행하는 방향으로 바꾸었다.
+- insertMenu()는 앱이 시작될 때 항상 실행되어야 하는 메소드로, KioskApp 객체를 생성할 때 실행되도록 하였다.
+- 예외처리를 진행하여 호출 된 메소드들이 예외를 던질 때 예외 메시지를 출력하도록 했다.
 
 ## KioskApp.java
 
@@ -59,28 +64,12 @@ public class KioskApp {
 
     public void insertMenu() {
 
-        //메인 메뉴
         menuList.add(new Menu("Tteokbokki", "계속 생각나는 매운맛! 엽기떡볶이🥵"));
-        menuList.add(new Menu("Side", "엽떡과 같이 먹으면 더 맛있어요🍙"));
-        menuList.add(new Menu("Drinks", "매움을 달래주기 위한 음료🧃"));
-        menuList.add(new Menu("Meal Kit", "어디서든 엽떡을 즐겨보세요🌳"));
-
-        //떡볶이 메뉴
-        tteokbokkiList.add(new Product("엽기떡볶이", "엽떡을 즐길줄 안다면 역시 오리지널!", 14000));
-        tteokbokkiList.add(new Product("짜장떡볶이", "아이들이 먹기 좋아요", 16000));
-        tteokbokkiList.add(new Product("로제떡볶이", "매운게 싫다면 부드러운 로제가 안성맞춤", 16000));
-        tteokbokkiList.add(new Product("마라떡볶이", "전국품절 마라떡볶이! 재입고 되었습니다.", 16000));
-
+        tteokbokkiList.add(new Product("엽기떡볶이", "엽떡을 즐길줄 안다면 역시 오리지널!", 14000));   
         sideList.add(new Product("셀프 주먹김밥", "오물조물 만들어서 먹어요.", 2000));
-        sideList.add(new Product("계란야채죽", "매운맛 소화기", 5000));
-        sideList.add(new Product("순대", "떡볶이에 순대는 빠질수 없습니다.", 3000));
-        sideList.add(new Product("야채튀김", "튀김도 마찬가지로 빠질수 없습니다.", 1000));
-
         drinkList.add(new Product("제로콜라", "살찌는게 걱정이라면 제로를 선택하세요.", 2000));
-        drinkList.add(new Product("쿨피스", "매운걸 못먹는 분은 쿨피스 필수입니다.", 1000));
-
         mealKitList.add(new Product("오리지널맛", "엽떡을 즐길줄 안다면 역시 오리지널!", 15000));
-        mealKitList.add(new Product("착한맛", "아이들이 먹기 좋아요", 15000));
+        //..중략
 
         allMenuMap.put(1, tteokbokkiList);
         allMenuMap.put(2, sideList);
@@ -125,68 +114,14 @@ public class KioskApp {
                 break;
             default: // 메뉴 선택
                 String productNum = printMenu(menuNum); // 입력받은 숫자에 따른 상세 메뉴 출력
+                Parser.parseNum(productNum, NUMBER_REG);
                 Product selectProduct = allMenuMap.get(Integer.parseInt(menuNum)).get(Integer.parseInt(productNum) - 1); //선택한 상품에 대한 정보 가져오기
 
                 order.addProduct(selectProduct); // 카트에 담기
         }
     }
 
-    /**
-     * 메인 메뉴 출력
-     */
-    public String printMenu() {
-
-        System.out.println("🧡 엽기떡볶이에 오신걸 환영합니다. 🧡");
-        System.out.println("아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.");
-        System.out.println();
-
-        System.out.println("[ 🔥 YUPDDUCK MENU 🔥 ]");
-        int index = 1;
-        for (Menu m : menuList) {
-            System.out.print(index++ + ". ");
-            m.print();
-        }
-
-        System.out.println("[ 💛 ORDER MENU 💛 ]");
-        System.out.print(index++ + ". ");
-        System.out.printf("%-15s | %s%n", "Order", "장바구니를 확인 후 주문합니다.⭕");
-        System.out.print(index + ". ");
-        System.out.printf("%-15s | %s%n", "Cancel", "진행중인 주문을 취소합니다.❌");
-        System.out.println();
-
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
-    }
-
-    /**
-     * 상세 메뉴 출력
-     */
-    public String printMenu(String selectNum) {
-        String menu = "TTEOKBOKKI";
-        int index = 1;
-        if ("2".equals(selectNum)) {
-            menu = "SIDE";
-        } else if ("3".equals(selectNum)) {
-            menu = "DRINK";
-        } else if ("4".equals(selectNum)) {
-            menu = "MEAL KIT";
-        }
-
-        System.out.println("엽기떡볶이에 오신걸 환영합니다.");
-        System.out.println("아래 상품메뉴판을 보시고 상품을 골라 입력해주세요.");
-        System.out.println();
-
-        System.out.println("[ 🔥 " + menu + " MENU 🔥 ]");
-        //메뉴 리스트 출력
-        for (Product p : allMenuMap.get(Integer.parseInt(selectNum))) {
-            System.out.print(index++ + ". ");
-            p.print();
-        }
-        System.out.println();
-
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
-    }
+    //..중략
 
     public void printAdmin() {
         System.out.println("[ 총 판매금액 현황 ]");
@@ -202,7 +137,7 @@ public class KioskApp {
 }
 
 ```
-
+- 각각의 입력이 숫자가 아닐 경우 오류를 던지게 수정
 - `kiosk()` : if문보다 switch문이 가독성이 더 좋아보여 변경하였다.
 - `printAdmin()` : 관리자의 메뉴를 출력하는 메소드를 추가하였다.
 
@@ -211,31 +146,16 @@ public class KioskApp {
 ```java
 public class Product extends Menu {
 
-	public Product(String name, String description, int price) {
-		super(name, description);
-		this.price = price;
-	}
+	//..중략
 
-	private int price;
-
-	public int getPrice() {
-		return price;
-	}
-
-	@Override
-	public void print() {
-		System.out.printf("%-15s | ₩ %s | %s%n", super.getName(), getPrice(),
-			super.getDescription());
-	}
-
-	public void countPrint(int count) {
+	public void print(int count) {
 		System.out.printf("%-15s | ₩ %s | %s개 | %s%n", super.getName(), getPrice() * count, count,
 			super.getDescription());
 	}
 }
 
 ```
-- `countPrint()` : 개수에 따른 출력을 위해 추가하였다.
+- `print(int count)` : 개수에 따른 출력을 위해 추가하였다.
 
 ## Order.java
 
@@ -254,41 +174,7 @@ public class Order {
     private int allTotalPrice;    //전체 판매금액
     private int waitingNum;    //대기번호
 
-    public Order() {
-        this.waitingNum = 1;
-    }
-
-    public Map<Product, Integer> getOrderList() {
-        return orderList;
-    }
-
-    public Map<String, Integer> getAllOrderList() {
-        return allOrderList;
-    }
-
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public int getAllTotalPrice() {
-        return allTotalPrice;
-    }
-
-    public void setAllTotalPrice() {
-        this.allTotalPrice += this.totalPrice;
-    }
-
-    public int getWaitingNum() {
-        return waitingNum;
-    }
-
-    public void setWaitingNum(int waitingNum) {
-        this.waitingNum = waitingNum;
-    }
+    //..중략
 
 
     /**
@@ -316,7 +202,7 @@ public class Order {
 
         if ("1".equals(result)) {
             orderList.clear();
-            setTotalPrice(0);
+            setTotalPrice(0);   
             System.out.println("진행중이던 주문이 취소되었습니다.");
         }
     }
@@ -410,13 +296,13 @@ public class Order {
 }
 
 ```
+- `private Map<Product, Integer> orderList` : 개수 출력을 위해 List에서 Map으로 변경
 - `printQuestion()` : 사용자가 화면에서 선택한 값에 따라서 출력되는 부분을 하나로 묶은 메소드
 
 
 ## Parser.java
 ```java
 import exception.BadInputException;
-
 import java.util.regex.Pattern;
 
 public class Parser {
