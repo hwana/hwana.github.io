@@ -107,16 +107,49 @@
 </ul>
 </li>
 </ol>
+<h4 id="많은-자동-의존관계-주입-방법-중-생성자-주입을-권장한다" style="position:relative;"><a href="#%EB%A7%8E%EC%9D%80-%EC%9E%90%EB%8F%99-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%A3%BC%EC%9E%85-%EB%B0%A9%EB%B2%95-%EC%A4%91-%EC%83%9D%EC%84%B1%EC%9E%90-%EC%A3%BC%EC%9E%85%EC%9D%84-%EA%B6%8C%EC%9E%A5%ED%95%9C%EB%8B%A4" aria-label="많은 자동 의존관계 주입 방법 중 생성자 주입을 권장한다 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>많은 자동 의존관계 주입 방법 중 생성자 주입을 권장한다.</h4>
+<h5 id="불변" style="position:relative;"><a href="#%EB%B6%88%EB%B3%80" aria-label="불변 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>불변</h5>
+<p>대부분의 의존관계는 애플리케이션이을 한번 실행하고 나면 종료시점까지 의존관계를 변경할 일이 거의 없으며, 의존관계가 변하면 안된다.
+수정자 주입을 사용하게 되면 setxxx메소드를 public으로 열어두어야 하기때문에 누군가 실수로 변경할 수도 있다.</p>
+<h5 id="누락" style="position:relative;"><a href="#%EB%88%84%EB%9D%BD" aria-label="누락 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>누락</h5>
+<p>생성자 주입을 사용하게 되면 의존관계 주입을 누락했을때 컴파일 오류가 발생하기 때문에 누락을 쉽게 알아챌 수 있다.</p>
+<h5 id="final" style="position:relative;"><a href="#final" aria-label="final permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>final</h5>
+<p>생성자 주입을 사용하게 되면 final 키워드를 사용할 수 있어서 생성자에 값이 설정되지 않는다면 컴파일 단계에서 막아준다.</p>
+<blockquote>
+<p>참고<br></p>
+</blockquote>
+<p>생성자 주입을 제외한 나머지 주입방식은 모두 생성자 이후에 호출되므로 final 키워드를 사용할 수 없다.
+생성자 주입과 수정자 주입을 동시에 사용해야 할 경우에는 기본으로 생성자 주입을 사용하고, 필수 값이 아닌 경우에 수정자 주입방식을 옵션으로 부여하면 된다.</p>
 <div class="table-of-contents">
 <ul>
 <li>
 <p><a href="#-%EC%98%A4%EB%8A%98%EC%9D%98-%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC">📝 오늘의 내용정리</a></p>
 <ul>
-<li><a href="#mathsqrt">Math.sqrt()</a></li>
-<li><a href="#mathpow">Math.pow()</a></li>
-<li><a href="#beanfactory">BeanFactory</a></li>
-<li><a href="#applicationcontext">ApplicationContext</a></li>
-<li><a href="#%EB%8B%A4%EC%96%91%ED%95%9C-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%A3%BC%EC%9E%85-%EB%B0%A9%EB%B2%95">다양한 의존관계 주입 방법</a></li>
+<li>
+<p><a href="#mathsqrt">Math.sqrt()</a></p>
+</li>
+<li>
+<p><a href="#mathpow">Math.pow()</a></p>
+</li>
+<li>
+<p><a href="#beanfactory">BeanFactory</a></p>
+</li>
+<li>
+<p><a href="#applicationcontext">ApplicationContext</a></p>
+</li>
+<li>
+<p><a href="#%EB%8B%A4%EC%96%91%ED%95%9C-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%A3%BC%EC%9E%85-%EB%B0%A9%EB%B2%95">다양한 의존관계 주입 방법</a></p>
+<ul>
+<li>
+<p><a href="#%EB%A7%8E%EC%9D%80-%EC%9E%90%EB%8F%99-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%A3%BC%EC%9E%85-%EB%B0%A9%EB%B2%95-%EC%A4%91-%EC%83%9D%EC%84%B1%EC%9E%90-%EC%A3%BC%EC%9E%85%EC%9D%84-%EA%B6%8C%EC%9E%A5%ED%95%9C%EB%8B%A4">많은 자동 의존관계 주입 방법 중 생성자 주입을 권장한다.</a></p>
+<ul>
+<li><a href="#%EB%B6%88%EB%B3%80">불변</a></li>
+<li><a href="#%EB%88%84%EB%9D%BD">누락</a></li>
+<li><a href="#final">final</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
