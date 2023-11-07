@@ -11,9 +11,9 @@ categories: TIL
 
 [알고리즘 스터디 7일차](https://github.com/StudySpringAlgorithm/Study_Algorithm_TeamSpring/blob/main/Kim/day7/day7.md)
 
-### 공통 응답 모듈 만들기
+## 공통 응답 모듈 만들기
 
-#### 계기
+### 계기
 
 ![사진](exception.png)
 
@@ -27,7 +27,7 @@ Exception이 발생했을 때 응답값을 위 이미지처럼 전달해주고 �
 
 그래서 공통 응답  모듈을 만들기로 결심했다!
 
-#### CommonApiResponse.java
+### CommonApiResponse.java
 
 ```java
 @Getter
@@ -71,7 +71,7 @@ public ResponseEntity<CommonApiResponse<BoardResponseDto>> addBoard(@RequestBody
 
 나는 이미 전달되고 있던 상태코드를 한번 더 보내주고 싶어했고, 설명을 하지 않아도 되는 상황을 메시지로 담아서 전달하고 싶었던 것이였다😬
 
-지금 프로젝트에서는 Exception 상황만 커스텀 에러로 응답값을 처리하고, 성공하는 상황은 그대로 두는게 적절하다는 생각이 들었다! 결국 이걸 고민하느라 시간을 많이 소비했지만 의미있는 고민이였다는 생각이 든다!
+지금 프로젝트에서는 Exception 상황만 커스텀 에러로 응답값을 처리하고, 성공하는 상황은 그대로 두는게 적절하다는 생각이 들었다! 결국 이걸 고민하느라 시간을 많이 소비했지만 의미있는 고민이였다😜
 
 ```toc
 
