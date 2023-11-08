@@ -1,6 +1,6 @@
 ---
 emoji: 🍭
-title: TIL) 20231013
+title: TIL) Arrays에 대해 공부하기!
 date: '2023-10-13 00:00:00'
 author: 화나
 tags: TIL

@@ -1,6 +1,6 @@
 ---
 emoji: ✨
-title: TIL) 20231026
+title: TIL) 인터페이스는 객체 생성이 불가능할까?
 date: '2023-10-26 00:00:00'
 author: 화나
 tags: TIL

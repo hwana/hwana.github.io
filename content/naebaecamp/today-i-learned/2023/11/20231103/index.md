@@ -1,6 +1,6 @@
 ---
 emoji: ✨
-title: TIL) 20231103
+title: TIL) Github Label 커스텀하기
 date: '2023-11-03 00:00:00'
 author: 화나
 tags: TIL

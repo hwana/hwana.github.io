@@ -1,6 +1,6 @@
 ---
 emoji: ✨
-title: TIL) 20231030
+title: TIL) 팀 프로젝트 마무리, 알고리즘 스터디 시작!
 date: '2023-10-30 00:00:00'
 author: 화나
 tags: TIL

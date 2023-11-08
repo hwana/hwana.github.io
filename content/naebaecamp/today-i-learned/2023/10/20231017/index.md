@@ -1,6 +1,6 @@
 ---
 emoji: ✨
-title: TIL) 20231017
+title: TIL) 예외처리
 date: '2023-10-17 00:00:00'
 author: 화나
 tags: TIL

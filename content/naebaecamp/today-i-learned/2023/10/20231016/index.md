@@ -1,6 +1,6 @@
 ---
 emoji: 🍭
-title: TIL) 20231016
+title: TIL) Collections
 date: '2023-10-16 00:00:00'
 author: 화나
 tags: TIL

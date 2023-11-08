@@ -1,6 +1,6 @@
 ---
 emoji: ✨
-title: TIL) 20231027
+title: TIL) 키오스크 프로그램 구현하기5
 date: '2023-10-27 00:00:00'
 author: 화나
 tags: TIL

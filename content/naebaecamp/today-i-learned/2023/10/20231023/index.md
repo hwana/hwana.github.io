@@ -1,6 +1,6 @@
 ---
 emoji: ✨
-title: TIL) 20231023
+title: TIL) 스프링 입문을 위한 자바 객체 지향의 원리와 이해
 date: '2023-10-23 00:00:00'
 author: 화나
 tags: TIL

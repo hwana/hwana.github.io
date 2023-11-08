@@ -1,6 +1,6 @@
 ---
 emoji: ✨
-title: TIL) 20231106
+title: TIL) ResponseEntity와 Custom Exception
 date: '2023-11-06 00:00:00'
 author: 화나
 tags: TIL
